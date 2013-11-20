@@ -1,7 +1,10 @@
-<<<<<<< HEAD
 # ETSIIGEM
 
-TODO: Write a gem description
+Gema para la representación de matrices, tanto densas como dispersas.
+
+#ESTRUCTURA
+
+Existe una clase madre llamada "Matriz" de la que heredan dos subclases, "Densa" para las matrices densas y "Dispersa" para las matrices dispersas.
 
 ## Installation
 
@@ -19,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+En proceso...
 
 ## Contributing
 
@@ -29,8 +32,7 @@ TODO: Write usage instructions here
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 =======
-prct10
+prct10 by:
 ======
-
-Gems &amp; Matrix
->>>>>>> 40ea3c0ca5c25881b4fda80527eb85ce14184147
+Héctor José Ravelo García
+Enrique Tejera González

@@ -1,7 +1,7 @@
 require "ETSII_GEM/version"
 
 module ETSIIGEM
-      class Matriz
+      class Matriz #Superclase matriz------------------------------------------------------------------------------------------
             attr_accessor :rows, :cols, :data
 
             undef rows=, cols=
@@ -29,7 +29,7 @@ module ETSIIGEM
         end
 
         def -(other)
-            raise ArgumentError, "Matrix size must be equal" unless @rows == other.rows && @cols == other.cols
+            raise ArgumentError, "El tamaño de las matrices debe ser igual" unless @rows == other.rows && @cols == other.cols
             c = Densa.new(@rows, @cols)
             @rows.times do |i|
                 @cols.times do |j|
@@ -87,8 +87,87 @@ module ETSIIGEM
         end
             
     end
-                
-        class Densa < Matriz
+            
+	class Fraccion
+        include Comparable
+
+        attr_accessor :num, :denom
+
+        def initialize(a, b)
+            x = mcd(a,b)
+            @num = a/x
+            @denom = b/x
+
+            if (@num < 0 && @denom < 0)
+                @num = @num * -1
+                @denom = @denom * -1
+            end
+
+            if (@denom < 0)
+                @denom = @denom * -1
+                @num = @num * -1
+            end
+        end
+
+        def mcd(u, v)
+           u, v = u.abs, v.abs
+           while v != 0
+              u, v = v, u % v
+           end
+           u
+        end
+
+        def to_s
+            "#{@num}/#{@denom}"
+        end
+
+        def to_f
+            @num.to_f/@denom.to_f
+        end
+
+        def +(other)
+            if other.instance_of? Fixnum
+                c = Fraccion.new(other,1)
+                Fraccion.new(@num * c.denom + @denom * c.num, @denom * c.denom)
+            else
+                Fraccion.new(@num * other.denom + @denom * other.num, @denom * other.denom)
+            end
+        end
+
+        def -(other)
+            if other.instance_of? Fixnum
+                c = Fraccion.new(other,1)
+                Fraccion.new(@num * c.denom - @denom * c.num, @denom * c.denom)
+            else
+                Fraccion.new(@num * other.denom - @denom * other.num, @denom * other.denom)
+            end
+        end
+
+        def *(other)
+            if other.instance_of? Fixnum
+                c = Fraccion.new(other,1)
+                Fraccion.new(@num * c.num, @denom * c.denom)
+            else
+                Fraccion.new(@num * other.num, @denom * other.denom)
+            end
+        end
+
+        def <=>(other)
+            return nil unless (other.instance_of? Fraccion) || (other.instance_of? Fixnum)
+            if other.instance_of? Fixnum
+                c = Fraccion.new(other,1)
+                (c.num.to_f / c.denom.to_f) <=> (self.num.to_f/self.denom.to_f)
+            else
+                (self.num.to_f/self.denom.to_f) <=> (other.num.to_f/other.denom.to_f)
+            end
+	end
+
+        def coerce(other)
+            [self,other]
+        end
+    end
+    
+        class Densa < Matriz #Matriz densa---------------------------------------------------------------------------------------
                 attr_reader :data
 
         def initialize(rows,cols)
@@ -136,7 +215,7 @@ module ETSIIGEM
       end
         end
 
-        class Dispersa < Matriz
+        class Dispersa < Matriz #Matriz dispersa--------------------------------------------------------------------------------
                 attr_reader :data
 
         def initialize(rows,cols, h = {})
