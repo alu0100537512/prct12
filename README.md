@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ETSIIGEM
 
 TODO: Write a gem description
@@ -27,3 +28,9 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+=======
+prct10
+======
+
+Gems &amp; Matrix
+>>>>>>> 40ea3c0ca5c25881b4fda80527eb85ce14184147
