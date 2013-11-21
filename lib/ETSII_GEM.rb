@@ -1,6 +1,6 @@
 require "ETSII_GEM/version"
 
-module ETSIIGEM
+module EtsiiGem
       class Matriz #Superclase matriz------------------------------------------------------------------------------------------
             attr_accessor :rows, :cols, :data
 

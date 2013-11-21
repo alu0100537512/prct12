@@ -1,15 +1,15 @@
-require 'lib/ETSII_GEM.rb'
+require './lib/ETSII_GEM.rb'
 
-describe ETSII_GEM do
+describe EtsiiGem do
   
         before :each do
-                @a = ETSII_GEM::Densa.new(2,2)
-                @a[0][0] = ETSII_GEM::Fraccion.new(1,1)
-                @a[0][1] = ETSII_GEM::Fraccion.new(2,1)
-                @a[1][0] = ETSII_GEM::Fraccion.new(3,1)
+                @a = EtsiiGem::Densa.new(2,2)
+                @a[0][0] = EtsiiGem::Fraccion.new(1,1)
+                @a[0][1] = EtsiiGem::Fraccion.new(2,1)
+                @a[1][0] = EtsiiGem::Fraccion.new(3,1)
                 @a[1][1] = 4
 
-                @b = ETSII_GEM::Dispersa.new(2,2,0 => { 0 => 1, 1 => 2})
+                @b = EtsiiGem::Dispersa.new(2,2,0 => { 0 => 1, 1 => 2})
         end
 
         describe "\n INFO de matrices \n" do
@@ -33,7 +33,7 @@ describe ETSII_GEM do
         describe "\n OPERANDO CON MATRICES DENSAS" do
                 describe "\n SUMA \n" do
                         it "Es posible sumar matrices de igual tamano" do
-                                x = ETSII_GEM::Densa.new(2,2)
+                                x = EtsiiGem::Densa.new(2,2)
 
                                 x[0][0] = 1
                                 x[0][1] = 2
@@ -49,7 +49,7 @@ describe ETSII_GEM do
                         end
 
                         it "No es posible sumar matrices de tamanos diferentes" do
-                                x = ETSII_GEM::Densa.new(2,1)
+                                x = EtsiiGem::Densa.new(2,1)
 
                                 x[0][0] = 1
                                 x[1][0] = 3
@@ -58,7 +58,7 @@ describe ETSII_GEM do
                         end
 
                         it "Al sumar dos matrices densas se debe obtener otra matriz densa" do
-                                x = ETSII_GEM::Densa.new(2,2)
+                                x = EtsiiGem::Densa.new(2,2)
 
                                 x[0][0] = 1
                                 x[0][1] = 2
@@ -67,39 +67,39 @@ describe ETSII_GEM do
 
                                 y = @a + x
 
-                                y.should be_an_instance_of ETSII_GEM::Densa
+                                y.should be_an_instance_of EtsiiGem::Densa
                         end
 
                 end
 
                 describe "\n RESTA \n" do
                         it "Es posible restar matrices de igual tamano" do
-                                x = ETSII_GEM::Densa.new(2,2)
+                                x = EtsiiGem::Densa.new(2,2)
 
-                                x[0][0] = ETSII_GEM::Fraccion.new(1,1)
-                                x[0][1] = ETSII_GEM::Fraccion.new(2,1)
-                                x[1][0] = ETSII_GEM::Fraccion.new(3,1)
-                                x[1][1] = ETSII_GEM::Fraccion.new(4,1)
+                                x[0][0] = EtsiiGem::Fraccion.new(1,1)
+                                x[0][1] = EtsiiGem::Fraccion.new(2,1)
+                                x[1][0] = EtsiiGem::Fraccion.new(3,1)
+                                x[1][1] = EtsiiGem::Fraccion.new(4,1)
 
                                 y = @a - x
 
-                                y[0][0].should eq(ETSII_GEM::Fraccion.new(0,1))
-                                y[0][1].should eq(ETSII_GEM::Fraccion.new(0,1))
-                                y[1][0].should eq(ETSII_GEM::Fraccion.new(0,1))
-                                y[1][1].should eq(ETSII_GEM::Fraccion.new(0,1))
+                                y[0][0].should eq(EtsiiGem::Fraccion.new(0,1))
+                                y[0][1].should eq(EtsiiGem::Fraccion.new(0,1))
+                                y[1][0].should eq(EtsiiGem::Fraccion.new(0,1))
+                                y[1][1].should eq(EtsiiGem::Fraccion.new(0,1))
                         end
 
                         it "No es posible restar matrices de tamanos diferentes" do
-                                x = ETSII_GEM::Densa.new(2,1)
+                                x = EtsiiGem::Densa.new(2,1)
 
-                                x[0][0] = ETSII_GEM::Fraccion.new(1,1)
-                                x[1][0] = ETSII_GEM::Fraccion.new(3,1)
+                                x[0][0] = EtsiiGem::Fraccion.new(1,1)
+                                x[1][0] = EtsiiGem::Fraccion.new(3,1)
 
                                 expect {@a - x}.to raise_error(ArgumentError)
                         end
 
                         it "Al restar dos matrices densas se debe obtener otra matriz densa" do
-                                x = ETSII_GEM::Densa.new(2,2)
+                                x = EtsiiGem::Densa.new(2,2)
 
                                 x[0][0] = 1
                                 x[0][1] = 2
@@ -108,45 +108,45 @@ describe ETSII_GEM do
 
                                 y = @a - x
 
-                                y.should be_an_instance_of ETSII_GEM::Densa
+                                y.should be_an_instance_of EtsiiGem::Densa
                         end
 
                 end
 
                 describe "\n MULTIPLICACION \n" do
                         it "Dos matrices son multiplicables si el numero de columnas de la 1ª coincide con el numero de filas de la 2ª" do
-                                x = ETSII_GEM::Densa.new(2,5)
+                                x = EtsiiGem::Densa.new(2,5)
 
-                                x[0][0] = ETSII_GEM::Fraccion.new(1,1)
-                                x[0][1] = ETSII_GEM::Fraccion.new(2,1)
-                                x[0][2] = ETSII_GEM::Fraccion.new(3,1)
-                                x[0][3] = ETSII_GEM::Fraccion.new(4,1)
-                                x[0][4] = ETSII_GEM::Fraccion.new(5,1)
-                                x[1][0] = ETSII_GEM::Fraccion.new(6,1)
-                                x[1][1] = ETSII_GEM::Fraccion.new(7,1)
-                                x[1][2] = ETSII_GEM::Fraccion.new(8,1)
-                                x[1][3] = ETSII_GEM::Fraccion.new(9,1)
-                                x[1][4] = ETSII_GEM::Fraccion.new(10,1)
+                                x[0][0] = EtsiiGem::Fraccion.new(1,1)
+                                x[0][1] = EtsiiGem::Fraccion.new(2,1)
+                                x[0][2] = EtsiiGem::Fraccion.new(3,1)
+                                x[0][3] = EtsiiGem::Fraccion.new(4,1)
+                                x[0][4] = EtsiiGem::Fraccion.new(5,1)
+                                x[1][0] = EtsiiGem::Fraccion.new(6,1)
+                                x[1][1] = EtsiiGem::Fraccion.new(7,1)
+                                x[1][2] = EtsiiGem::Fraccion.new(8,1)
+                                x[1][3] = EtsiiGem::Fraccion.new(9,1)
+                                x[1][4] = EtsiiGem::Fraccion.new(10,1)
 
                                 y = @a * x
 
-                                y[0][0].should eq(ETSII_GEM::Fraccion.new(13,1))
-                                y[0][1].should eq(ETSII_GEM::Fraccion.new(16,1))
-                                y[0][2].should eq(ETSII_GEM::Fraccion.new(19,1))
-                                y[0][3].should eq(ETSII_GEM::Fraccion.new(22,1))
-                                y[0][4].should eq(ETSII_GEM::Fraccion.new(25,1))
-                                y[1][0].should eq(ETSII_GEM::Fraccion.new(27,1))
-                                y[1][1].should eq(ETSII_GEM::Fraccion.new(34,1))
-                                y[1][2].should eq(ETSII_GEM::Fraccion.new(41,1))
-                                y[1][3].should eq(ETSII_GEM::Fraccion.new(48,1))
-                                y[1][4].should eq(ETSII_GEM::Fraccion.new(55,1))
+                                y[0][0].should eq(EtsiiGem::Fraccion.new(13,1))
+                                y[0][1].should eq(EtsiiGem::Fraccion.new(16,1))
+                                y[0][2].should eq(EtsiiGem::Fraccion.new(19,1))
+                                y[0][3].should eq(EtsiiGem::Fraccion.new(22,1))
+                                y[0][4].should eq(EtsiiGem::Fraccion.new(25,1))
+                                y[1][0].should eq(EtsiiGem::Fraccion.new(27,1))
+                                y[1][1].should eq(EtsiiGem::Fraccion.new(34,1))
+                                y[1][2].should eq(EtsiiGem::Fraccion.new(41,1))
+                                y[1][3].should eq(EtsiiGem::Fraccion.new(48,1))
+                                y[1][4].should eq(EtsiiGem::Fraccion.new(55,1))
                         end
 
                         it "No se pueden multiplicar dos matrices si el numero de columnas de la 1ª es diferente al numero de filas de la 2ª" do
-                                x = ETSII_GEM::Densa.new(1,2)
+                                x = EtsiiGem::Densa.new(1,2)
 
                                 x[0][0] = 1
-                                x[0][1] = ETSII_GEM::Fraccion.new(2,1)
+                                x[0][1] = EtsiiGem::Fraccion.new(2,1)
 
                                 expect {@a * x}.to raise_error(ArgumentError)
                         end
@@ -173,8 +173,8 @@ describe ETSII_GEM do
 
         describe "\n OPERANDO CON MATRICES DISPERSAS \n" do
                 it "Es posible sumar dos matrices dispersas" do
-                        x = ETSII_GEM::Dispersa.new(2,2,0 => { 0 => 1, 1 => 2}, 1 => { 0 => 3, 1 => 4})
-                        y = ETSII_GEM::Dispersa.new(2,2,0 => { 0 => 1, 1 => 2}, 1 => { 0 => 3, 1 => 4})
+                        x = EtsiiGem::Dispersa.new(2,2,0 => { 0 => 1, 1 => 2}, 1 => { 0 => 3, 1 => 4})
+                        y = EtsiiGem::Dispersa.new(2,2,0 => { 0 => 1, 1 => 2}, 1 => { 0 => 3, 1 => 4})
 
                         z = x + y
 
@@ -185,7 +185,7 @@ describe ETSII_GEM do
                 end
 
                 it "Es posible sumar una matriz dispersa y una densa" do
-                        x = ETSII_GEM::Dispersa.new(2,2,0 => { 0 => 1, 1 => 2}, 1 => { 0 => 3, 1 => 4})
+                        x = EtsiiGem::Dispersa.new(2,2,0 => { 0 => 1, 1 => 2}, 1 => { 0 => 3, 1 => 4})
 
                         y = @a + x
 
@@ -196,15 +196,16 @@ describe ETSII_GEM do
                 end
 
                 it "Es posible multiplicar una matriz dispersa y una densa" do
-                        x = ETSII_GEM::Dispersa.new(2,2,0 => { 0 => ETSII_GEM::Fraccion.new(5,1), 1 => 6})
+                        x = EtsiiGem::Dispersa.new(2,2,0 => { 0 => EtsiiGem::Fraccion.new(5,1), 1 => 6})
 
                         y = @a * x
 
                         y[0][0].should eq(5)
                         y[0][1].should eq(6)
                         y[1][0].should eq(15)
-                        y[1][1].should eq(ETSSI_GEM::Fraccion.new(18,1))
+                        y[1][1].should eq(EtsiiGem::Fraccion.new(18,1))
                 end
 
         end
+end
 end
