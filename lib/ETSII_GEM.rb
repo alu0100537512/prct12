@@ -9,7 +9,7 @@ module EtsiiGem
             def initialize(rows, cols)
                     @rows, @cols = rows, cols
             end
-                                def +(other)
+                               def +(other)
             raise ArgumentError, "El tamaño de las matrices debe ser igual" unless @rows == other.rows && @cols == other.cols
             c = Densa.new(@rows, @cols)
             @rows.times do |i|
