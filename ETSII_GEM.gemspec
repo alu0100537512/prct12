@@ -6,10 +6,10 @@ require 'ETSII_GEM/version'
 Gem::Specification.new do |spec|
   spec.name          = "ETSII_GEM"
   spec.version       = ETSIIGEM::VERSION
-  spec.authors       = ["Héctor J."]
+  spec.authors       = ["Héctor J. & Enrique Tejera"]
   spec.email         = ["alu0100603170@ull.edu.es"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{"Gema para la representación de matrices, tanto densas como dispersas."}
+  spec.summary       = %q{"Existe una clase madre llamada 'Matriz' de la que heredan dos subclases, 'Densa' para las matrices densas y 'Dispersa' para las matrices dispersas."}
   spec.homepage      = ""
   spec.license       = "MIT"
 
