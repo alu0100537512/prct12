@@ -81,7 +81,7 @@ class Test_ETSII_GEM < Test::Unit::TestCase
         end
 
         def test_min
-                assert_equal(EtsiiGem::Fraccion.new(1,1),@a.min)
+                assert_equal(EtsiiGem::Fraccion.new(4,1),@a.min)
                 assert_equal(EtsiiGem::Fraccion.new(0,1),@c.min)
         end
 end

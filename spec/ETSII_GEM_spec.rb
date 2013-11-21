@@ -167,7 +167,7 @@ describe EtsiiGem do
                 end
 
                 it "Valor minimo" do
-                        @a.min.should eq(1)
+                        @a.min.should eq(4)
                 end
         end
 

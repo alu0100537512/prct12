@@ -10,8 +10,13 @@ task :default => :spec
 	task :test do
      	   sh "ruby -I. test/tc_ETSII_GEM.rb"
 	end
-	
+
 	desc "Ejecutar las espectativas de la gema"
 	task :spec do
 	  sh "rspec -I. spec/ETSII_GEM_spec.rb"
+	end
+
+	desc "Ejecutar con documentacion"
+	task :doc do
+ 	 sh "rspec -I. spec/ETSII_GEM_spec.rb --format documentation"
 	end
