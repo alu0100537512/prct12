@@ -195,13 +195,15 @@ describe EtsiiGem do
                         y[1][1].should eq(8)
                 end
 
-					 it "Es posible sumar una matriz densa con una dispersa con una fraccion dentro" do
-                        x = EtsiiGem::Dispersa.new(2,2,0 => {1 => {1 => EtsiiGem::Fraccion.new(1,2)})
-								@a = EtsiiGem::Densa.new(2,2)
-						       @a[0][0] = 3
-						       @a[0][1] = 4
-						       @a[1][0] = 5
-						       @a[1][1] = 6
+		it "Es posible sumar una matriz densa con una dispersa con una fraccion dentro" do
+                        x = EtsiiGem::Dispersa.new(2,2,1 => {1 => EtsiiGem::Fraccion.new(1,2)})
+			
+			@a = EtsiiGem::Densa.new(2,2)
+			@a[0][0] = 3
+			@a[0][1] = 4
+			@a[1][0] = 5
+			@a[1][1] = 6
+
                         y = @a + x
 
                         y[0][0].should eq(3)
