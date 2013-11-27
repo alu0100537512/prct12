@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>ETSII_GEM_spec.rb~ - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../ETSII_GEM_gemspec.html">ETSII_GEM.gemspec</a>
+  
+    <li class="file"><a href="../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="../Guardfile.html">Guardfile</a>
+  
+    <li class="file"><a href="../LICENSE_txt.html">LICENSE</a>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+    <li class="file"><a href="../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../Rakefile~.html">Rakefile~</a>
+  
+    <li class="file"><a href="../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../spec/ETSII_GEM_spec_rb~.html">ETSII_GEM_spec.rb~</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../ETSIIGEM.html">ETSIIGEM</a>
+  
+    <li><a href="../EtsiiGem.html">EtsiiGem</a>
+  
+    <li><a href="../EtsiiGem/Densa.html">EtsiiGem::Densa</a>
+  
+    <li><a href="../EtsiiGem/Dispersa.html">EtsiiGem::Dispersa</a>
+  
+    <li><a href="../EtsiiGem/Fraccion.html">EtsiiGem::Fraccion</a>
+  
+    <li><a href="../EtsiiGem/Matriz.html">EtsiiGem::Matriz</a>
+  
+    <li><a href="../EtsiiGem/VectorDisperso.html">EtsiiGem::VectorDisperso</a>
+  
+    <li><a href="../Test_ETSII_GEM.html">Test_ETSII_GEM</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>require &#39;./lib/ETSII_GEM.rb&#39;</p>
+
+<p>describe <a href="../EtsiiGem.html">EtsiiGem</a> do</p>
+
+<pre class="ruby"><span class="ruby-identifier">before</span> :<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-ivar">@a</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>)
+        <span class="ruby-ivar">@a</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)
+        <span class="ruby-ivar">@a</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)
+        <span class="ruby-ivar">@a</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">1</span>)
+        <span class="ruby-ivar">@a</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">4</span>
+
+        <span class="ruby-ivar">@b</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispersa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>})
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;\n INFO de matrices \n&quot;</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;La matriz densa tiene guardado el numero de filas&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-ivar">@a</span>.<span class="ruby-identifier">rows</span>.<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">2</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;La matriz densa tiene guardado el numero de columnas &quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-ivar">@a</span>.<span class="ruby-identifier">cols</span>.<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">2</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;La matriz dispersa tiene guardado el numero de filas&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-ivar">@b</span>.<span class="ruby-identifier">rows</span>.<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">2</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;La matriz dispersa tiene guardado el numero de columnas&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-ivar">@b</span>.<span class="ruby-identifier">cols</span>.<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">2</span>)
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;\n OPERANDO CON MATRICES DENSAS&quot;</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;\n SUMA \n&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Es posible sumar matrices de igual tamano&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>)
+
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">2</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">3</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">4</span>
+
+                        <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@a</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">x</span>
+
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">2</span>)
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">4</span>)
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">6</span>)
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">8</span>)
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;No es posible sumar matrices de tamanos diferentes&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)
+
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">3</span>
+
+                        <span class="ruby-identifier">expect</span> {<span class="ruby-ivar">@a</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">x</span>}.<span class="ruby-identifier">to</span> <span class="ruby-identifier">raise_error</span>(<span class="ruby-constant">ArgumentError</span>)
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Al sumar dos matrices densas se debe obtener otra matriz densa&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>)
+
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">2</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">3</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">4</span>
+
+                        <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@a</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">x</span>
+
+                        <span class="ruby-identifier">y</span>.<span class="ruby-identifier">should</span> <span class="ruby-identifier">be_an_instance_of</span> <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>
+                <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;\n RESTA \n&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Es posible restar matrices de igual tamano&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>)
+
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">4</span>,<span class="ruby-value">1</span>)
+
+                        <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@a</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span>
+
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>,<span class="ruby-value">1</span>))
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;No es posible restar matrices de tamanos diferentes&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)
+
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">1</span>)
+
+                        <span class="ruby-identifier">expect</span> {<span class="ruby-ivar">@a</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span>}.<span class="ruby-identifier">to</span> <span class="ruby-identifier">raise_error</span>(<span class="ruby-constant">ArgumentError</span>)
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Al restar dos matrices densas se debe obtener otra matriz densa&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>)
+
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">2</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">3</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">4</span>
+
+                        <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@a</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">x</span>
+
+                        <span class="ruby-identifier">y</span>.<span class="ruby-identifier">should</span> <span class="ruby-identifier">be_an_instance_of</span> <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>
+                <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;\n MULTIPLICACION \n&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Dos matrices son multiplicables si el numero de columnas de la 1ª coincide con el numero de filas de la 2ª&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">5</span>)
+
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">2</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">3</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">4</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">4</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">5</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">6</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">7</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">2</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">8</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">3</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">9</span>,<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">1</span>][<span class="ruby-value">4</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">10</span>,<span class="ruby-value">1</span>)
+
+                        <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@a</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">x</span>
+
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">13</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">16</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">2</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">19</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">3</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">22</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">4</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">25</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">27</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">34</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">2</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">41</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">3</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">48</span>,<span class="ruby-value">1</span>))
+                        <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">4</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">55</span>,<span class="ruby-value">1</span>))
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;No se pueden multiplicar dos matrices si el numero de columnas de la 1ª es diferente al numero de filas de la 2ª&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)
+
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">x</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>] = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)
+
+                        <span class="ruby-identifier">expect</span> {<span class="ruby-ivar">@a</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">x</span>}.<span class="ruby-identifier">to</span> <span class="ruby-identifier">raise_error</span>(<span class="ruby-constant">ArgumentError</span>)
+                <span class="ruby-keyword">end</span>
+
+                <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Una matriz densa se puede multiplicar por un valor determinado&quot;</span> <span class="ruby-keyword">do</span>
+                        <span class="ruby-ivar">@a</span>.<span class="ruby-identifier">x</span>(<span class="ruby-value">2</span>)
+
+                        <span class="ruby-ivar">@a</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">2</span>)
+                        <span class="ruby-ivar">@a</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">4</span>)
+                        <span class="ruby-ivar">@a</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">6</span>)
+                        <span class="ruby-ivar">@a</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">8</span>)
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;\n VALORES MAX Y MIN DE UNA MATRIZ \n&quot;</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Valor maximo&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-ivar">@a</span>.<span class="ruby-identifier">max</span>.<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">4</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Valor minimo&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-ivar">@a</span>.<span class="ruby-identifier">min</span>.<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">4</span>)
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;\n OPERANDO CON MATRICES DISPERSAS \n&quot;</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Es posible sumar dos matrices dispersas&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispersa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>}, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>})
+                <span class="ruby-identifier">y</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispersa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>}, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>})
+
+                <span class="ruby-identifier">z</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">y</span>
+
+                <span class="ruby-identifier">z</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">2</span>)
+                <span class="ruby-identifier">z</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">4</span>)
+                <span class="ruby-identifier">z</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">6</span>)
+                <span class="ruby-identifier">z</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">8</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Es posible sumar una matriz dispersa y una densa&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispersa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>}, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>})
+
+                <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@a</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">x</span>
+
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">2</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">4</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">6</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">8</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Es posible sumar una matriz densa con una dispersa con una fraccion dentro&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispersa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)}})
+
+                <span class="ruby-ivar">@a</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Densa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>)
+                <span class="ruby-ivar">@a</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">3</span>
+                <span class="ruby-ivar">@a</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">4</span>
+                <span class="ruby-ivar">@a</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>] = <span class="ruby-value">5</span>
+                <span class="ruby-ivar">@a</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>] = <span class="ruby-value">6</span>
+
+                <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@a</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">x</span>
+
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">3</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">4</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">5</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">13</span>,<span class="ruby-value">2</span>))
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;Es posible multiplicar una matriz dispersa y una densa&quot;</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">x</span> = <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Dispersa</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">5</span>,<span class="ruby-value">1</span>), <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">6</span>})
+
+                <span class="ruby-identifier">y</span> = <span class="ruby-ivar">@a</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">x</span>
+
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">5</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">0</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">6</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-value">15</span>)
+                <span class="ruby-identifier">y</span>[<span class="ruby-value">1</span>][<span class="ruby-value">1</span>].<span class="ruby-identifier">should</span> <span class="ruby-identifier">eq</span>(<span class="ruby-constant">EtsiiGem</span><span class="ruby-operator">::</span><span class="ruby-constant">Fraccion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">18</span>,<span class="ruby-value">1</span>))
+        <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end end</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
