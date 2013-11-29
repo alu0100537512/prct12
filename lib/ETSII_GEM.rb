@@ -85,7 +85,17 @@ module EtsiiGem
             end
             value
         end
-            
+           
+	def encontrar
+		@rows.times do |i|
+		  @cols.times do |j|
+			if (yield(self[i][j]))
+				return i,j
+			end
+		  end
+		end
+		
+	end 
     end
             
 	class Fraccion

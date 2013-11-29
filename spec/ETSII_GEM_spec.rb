@@ -224,5 +224,17 @@ describe EtsiiGem do
                 end
 
         end
+	describe "Buscar la posición de un valor" do
+		it "Es posible buscar la posición un número dentro de una matriz" do
+			@a = EtsiiGem::Densa.new(2,2)
+			@a[0][0] = 1
+			@a[0][1] = 9
+			@a[1][0] = 5
+			@a[1][1] = 6
+			values = @a.encontrar {|e| e*e > 6 }
+			values.should eq([0,1])
+		end
+	end	
+
 end
 end
