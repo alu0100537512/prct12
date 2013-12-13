@@ -5,7 +5,7 @@ require "./ETSII_GEM.rb"
 	
 	def initialize(name,&block)
 		self.name = name
-		self.oper=
+		self.oper = EtsiiGem::Densa.new(3,3)
 		self.opt = ""
 		instance_eval &block
 	end

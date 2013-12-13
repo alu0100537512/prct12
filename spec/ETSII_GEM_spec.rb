@@ -234,7 +234,80 @@ describe EtsiiGem do
 			values = @a.encontrar {|e| e*e > 6 }
 			values.should eq([0,1])
 		end
-	end	
+	end
+	describe "Prueba MatrizDSL" do
+         	it "Prueba suma densas MatrizDSL" do
+			matriz1 = EtsiiGem::Densa.new(3,3)
+			matriz1[0][0] = 1
+			matriz1[0][1] = 2
+			matriz1[0][2] = 3
+			matriz1[1][0] = 4
+			matriz1[1][1] = 5
+			matriz1[1][2] = 6
+			matriz1[2][0] = 7
+			matriz1[2][1] = 8
+			matriz1[2][2] = 9
+			matriz2 = EtsiiGem::Densa.new(3,3)
+			matriz2[0][0] = 1
+			matriz2[0][1] = 1
+			matriz2[0][2] = 1
+			matriz2[1][0] = 1
+			matriz2[1][1] = 1
+			matriz2[1][2] = 1
+			matriz2[2][0] = 1
+			matriz2[2][1] = 1
+			matriz2[2][2] = 1
+               		@a = MatrizDSL.new("suma") do
+                 		operando(matriz1)
+                 		operando(matriz2)
+                	end
+                	@a[0][0].should eq(2)
+                	@a[0][1].should eq(3)
+                	@a[0][2].should eq(4)
+                	@a[1][0].should eq(5)
+                	@a[1][1].should eq(6)
+                	@a[1][2].should eq(7)
+                	@a[2][0].should eq(8)
+                	@a[2][1].should eq(9)
+                	@a[2][2].should eq(10)
+         	end
+
+         	it "Prueba resta densas MatrizDSL" do
+         		matriz1 = EtsiiGem::Densa.new(3,3)
+			matriz1[0][0] = 1
+			matriz1[0][1] = 2
+			matriz1[0][2] = 3
+			matriz1[1][0] = 4
+			matriz1[1][1] = 5
+			matriz1[1][2] = 6
+			matriz1[2][0] = 7
+			matriz1[2][1] = 8
+			matriz1[2][2] = 9
+			matriz2 = EtsiiGem::Densa.new(3,3)
+			matriz2[0][0] = 1
+			matriz2[0][1] = 1
+			matriz2[0][2] = 1
+			matriz2[1][0] = 1
+			matriz2[1][1] = 1
+			matriz2[1][2] = 1
+			matriz2[2][0] = 1
+			matriz2[2][1] = 1
+			matriz2[2][2] = 1
+               		@a = MatrizDSL.new("resta") do
+                 		operando(matriz1)
+                 		operando(matriz2)
+                	end
+                	@a[0][0].should eq(0)
+                	@a[0][1].should eq(1)
+                	@a[0][2].should eq(2)
+                	@a[1][0].should eq(3)
+                	@a[1][1].should eq(4)
+                	@a[1][2].should eq(5)
+                	@a[2][0].should eq(6)
+                	@a[2][1].should eq(7)
+                	@a[2][2].should eq(8)
+         	end
+        end	
 
 end
 end
