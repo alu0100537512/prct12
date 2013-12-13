@@ -20,9 +20,9 @@ Or install it yourself as:
 
     $ gem install ETSII_GEM
 
-## Usage
+## Gemnasium problem
 
-En proceso...
+Las órdenes de gemnasium no están instaladas en el CC.
 
 =======
 ## prct12 by:
